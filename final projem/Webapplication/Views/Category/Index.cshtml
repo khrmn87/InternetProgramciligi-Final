@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+@model List<CategoryViewModel>
+
+<div class="container">
+    <button class="btn btn-primary mb-3" onclick="showCreateModal()">
+        <i class="fas fa-plus"></i> Yeni Kategori Ekle
+    </button>
+
+    <table id="categoryTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ad</th>
+                <th>Açıklama</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<!-- Ekleme Modalı -->
+<div class="modal fade" id="createModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Kategori Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createForm">
+                    <div class="form-group">
+                        <label>Kategori Adı</label>
+                        <input type="text" class="form-control" id="createName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <textarea class="form-control" id="createDescription"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" onclick="createCategory()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Düzenleme Modalı -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Kategori Düzenle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="editId">
+                    <div class="form-group">
+                        <label>Kategori Adı</label>
+                        <input type="text" class="form-control" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <textarea class="form-control" id="editDescription"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" onclick="updateCategory()">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            loadCategories();
+        });
+
+        var categoryTable = $('#categoryTable').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json'
+            },
+            columns: [
+                { data: 'id' },
+                { data: 'name' },
+                { data: 'description' },
+                {
+                    data: null,
+                    render: function (data) {
+                        return `
+                            <button class="btn btn-sm btn-primary" onclick="showEditModal(${data.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(${data.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        `;
+                    }
+                }
+            ]
+        });
+
+        function loadCategories() {
+            $.get('/Category/GetAllCategories', function (data) {
+                categoryTable.clear();
+                categoryTable.rows.add(data);
+                categoryTable.draw();
+            });
+        }
+
+        function showCreateModal() {
+            $('#createModal').modal('show');
+            $('#createForm')[0].reset();
+        }
+
+        function createCategory() {
+            var category = {
+                name: $('#createName').val(),
+                description: $('#createDescription').val()
+            };
+
+            $.ajax({
+                url: '/Category/Create',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(category),
+                success: function (result) {
+                    if (result.success) {
+                        $('#createModal').modal('hide');
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('createModal'));
+                        modal.hide();
+
+                        loadCategories();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Başarılı!',
+                            text: 'Kategori başarıyla eklendi.'
+                        });
+                    }
+                }
+            });
+        }
+
+        function showEditModal(id) {
+            $.get('/Category/GetCategory/' + id, function (data) {
+                $('#editId').val(data.id);
+                $('#editName').val(data.name);
+                $('#editDescription').val(data.description);
+                $('#editModal').modal('show');
+            });
+        }
+
+        function updateCategory() {
+            var category = {
+                id: $('#editId').val(),
+                name: $('#editName').val(),
+                description: $('#editDescription').val()
+            };
+
+            $.ajax({
+                url: '/Category/Edit',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(category),
+                success: function (result) {
+                    if (result.success) {
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+                        modal.hide();
+
+                        loadCategories();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Başarılı!',
+                            text: 'Kategori başarıyla güncellendi.'
+                        });
+                    }
+                }
+            });
+        }
+
+        function deleteCategory(id) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Bu kategori silinecek!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post('/Category/Delete/' + id, function (result) {
+                        if (result.success) {
+                            loadCategories();
+                            Swal.fire(
+                                'Silindi!',
+                                'Kategori başarıyla silindi.',
+                                'success'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}
+

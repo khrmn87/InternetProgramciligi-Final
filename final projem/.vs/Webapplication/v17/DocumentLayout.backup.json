@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\admin\\userlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\admin\\userlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\migrations\\20231129065_mig1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\migrations\\20231129065_mig1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|c:\\users\\al\u0130 kahraman\\desktop\\final projem\\webapplication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81C1BFC5-8B9E-437B-93B3-244C217DD7A1}|Webapplication\\Webapplication.csproj|solutionrelative:webapplication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T04:13:55.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAwwPcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T03:28:19.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Users.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Admin\\Users.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\Admin\\Users.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Admin\\Users.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\Admin\\Users.cshtml",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAUwLIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T04:23:25.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserList.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Admin\\UserList.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\Admin\\UserList.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Admin\\UserList.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\Admin\\UserList.cshtml",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAkwLcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T04:17:53.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\User\\Register.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\User\\Register.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\User\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T20:40:43.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\User\\Login.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\User\\Login.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\User\\Login.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\User\\Login.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAuwJoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T20:34:31.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Webapplication\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Webapplication\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-25T09:04:37.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20231129065_mig1.cs",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Migrations\\20231129065_mig1.cs",
+              "RelativeDocumentMoniker": "Webapplication\\Migrations\\20231129065_mig1.cs",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\Migrations\\20231129065_mig1.cs",
+              "RelativeToolTip": "Webapplication\\Migrations\\20231129065_mig1.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAQwC8BAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T08:40:36.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\appsettings.json",
+              "RelativeDocumentMoniker": "Webapplication\\appsettings.json",
+              "ToolTip": "C:\\Users\\AL\u0130 KAHRAMAN\\Desktop\\final projem\\Webapplication\\appsettings.json",
+              "RelativeToolTip": "Webapplication\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAACCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-25T07:23:44.927Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

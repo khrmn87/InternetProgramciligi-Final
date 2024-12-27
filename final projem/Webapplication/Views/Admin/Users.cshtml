@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = "Kullanıcı Yönetimi";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid py-4">
+    <!-- Card for User List -->
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header bg-transparent border-bottom-0">
+            <h5 class="m-0 text-dark font-weight-bold">Kullanıcı Listesi</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-sm" id="usersTable">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Kullanıcı Adı</th>
+                            <th>E-posta</th>
+                            <th>Adı</th>
+                            <th>Kullanılan Alan</th>
+                            <th>Depolama Limiti</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Storage Limit Update -->
+<div class="modal fade" id="storageLimitModal" tabindex="-1" aria-labelledby="storageLimitModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-lg">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="storageLimitModalLabel">Depolama Alanı Güncelle</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="storageLimitForm">
+                    <input type="hidden" id="userId" />
+                    <div class="form-group">
+                        <label for="storageLimit" class="form-label">Yeni Depolama Limiti (GB)</label>
+                        <input type="number" class="form-control form-control-lg" id="storageLimit" min="1" max="100" step="0.5" required />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-success btn-lg" id="saveStorageLimit">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // DataTable initialization
+            var table = $('#usersTable').DataTable({
+                processing: true,
+                serverSide: false,
+                ajax: {
+                    url: '@Url.Action("Users", "Admin")',
+                    type: 'GET',
+                    dataSrc: function(response) {
+                        if (response.error) {
+                            toastr.error(response.error);
+                            return [];
+                        }
+                        return response || [];
+                    }
+                },
+                columns: [
+                    { data: 'userName' },
+                    { data: 'email' },
+                    { data: 'firstName' },
+                    {
+                        data: 'storageSize',
+                        render: function (data) {
+                            return data ? (data / 1024).toFixed(2) + ' GB' : '0 GB';
+                        }
+                    },
+                    {
+                        data: 'storageLimit',
+                        render: function (data) {
+                            return data ? (data / 1024).toFixed(2) + ' GB' : '5 GB';
+                        }
+                    },
+                    {
+                        data: 'id',
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <button class="btn btn-sm btn-outline-primary update-storage" data-id="${data}">
+                                    <i class="fas fa-edit"></i> Güncelle
+                                </button>`;
+                        }
+                    }
+                ],
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json'
+                },
+                responsive: true,
+                order: [[2, 'desc']],
+                dom: '<"top"f>rt<"bottom"p><"clear">',
+                drawCallback: function(settings) {
+                    // Hover Effect
+                    $('#usersTable tbody tr').hover(function () {
+                        $(this).addClass('table-active');
+                    }, function () {
+                        $(this).removeClass('table-active');
+                    });
+                }
+            });
+
+            // Modal için işleyiş
+            var $modal = $('#storageLimitModal');
+
+            // Depolama limitini güncelleme
+            $(document).on('click', '.update-storage', function () {
+                var row = $(this).closest('tr');
+                var data = table.row(row).data();
+                var currentLimit = (data.storageLimit / 1024).toFixed(2);
+
+                $('#userId').val(data.id);
+                $('#storageLimit').val(currentLimit);
+                $modal.modal('show');
+            });
+
+            // Modal'ı kapatma
+            $('.close, .btn-secondary').on('click', function () {
+                $modal.modal('hide');
+                $('.modal-backdrop').remove();
+            });
+
+            // Depolama limiti kaydetme
+            $('#saveStorageLimit').click(function () {
+                var userId = $('#userId').val();
+                var newLimit = $('#storageLimit').val();
+
+                if (!newLimit || newLimit < 1) {
+                    toastr.error('Geçerli bir limit giriniz');
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("UpdateUserStorage", "Admin")',
+                    type: 'POST',
+                    data: {
+                        userId: userId,
+                        newStorageLimit: newLimit
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            toastr.success(response.message);
+                            $modal.modal('hide');
+                            $('.modal-backdrop').remove();
+                            table.ajax.reload();
+                        } else {
+                            toastr.error(response.message);
+                        }
+                    },
+                    error: function () {
+                        toastr.error('Güncelleme sırasında bir hata oluştu');
+                    }
+                });
+            });
+
+            // Modal kapandığında temizlik yap
+            $modal.on('hidden.bs.modal', function () {
+                $('#userId').val('');
+                $('#storageLimit').val('');
+                $('.modal-backdrop').remove();
+                $('body').removeClass('modal-open');
+            });
+        });
+    </script>
+}

@@ -1,0 +1,166 @@
+﻿@{
+    Layout = null;
+}
+
+@model RegisterViewModel
+
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+    /* Arka planı tamamen bir fotoğrafla değiştirme */
+    .auth-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('https://www.doxagon.com/wp-content/uploads/2023/11/dokuman-yonetim-yazilimlari.jpg'); /* Burada resmin URL'sini kullanın */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: overlay; /* Fotoğrafın üzerine renk ekler */
+        background-color: rgba(0, 0, 0, 0.4); /* Fotoğrafın üzerine hafif karanlık bir renk ekleyerek, yazıların daha belirgin olmasını sağlıyoruz */
+        padding: 20px;
+    }
+
+    .auth-form {
+        background: rgba(255, 255, 255, 0.8); /* Opaklık ekleyerek formu daha belirgin hale getirebiliriz */
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        transition: transform 0.3s ease;
+    }
+
+        .auth-form:hover {
+            transform: translateY(-5px);
+        }
+
+        .auth-form h4 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .auth-form .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .auth-form label {
+            font-weight: 500;
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-form .form-control {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+            .auth-form .form-control:focus {
+                border-color: #3498db;
+                box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+            }
+
+        .auth-form .btn {
+            padding: 0.8rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
+            background: #3498db;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+            .auth-form .btn:hover {
+                background: #2980b9;
+                transform: translateY(-2px);
+            }
+
+        .auth-form .text-danger {
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .auth-form a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .auth-form a:hover {
+                color: #2980b9;
+            }
+
+    .validation-summary-errors ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem 0;
+        color: #e74c3c;
+        font-size: 0.9rem;
+    }
+
+</style>
+
+<div class="auth-container">
+    <div class="auth-form">
+        <h4>Kayıt Ol</h4>
+        <form asp-controller="User" asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FirstName">Ad</label>
+                <input asp-for="FirstName" class="form-control" placeholder="Adınızı girin" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastName">Soyad</label>
+                <input asp-for="LastName" class="form-control" placeholder="Soyadınızı girin" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Email adresinizi girin" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Şifre</label>
+                <input asp-for="Password" class="form-control" placeholder="Şifrenizi girin" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">Şifre Tekrar</label>
+                <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifrenizi tekrar girin" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
+
+            <div class="text-center mt-3">
+                <a href="@Url.Action("Login","User")">Zaten hesabınız var mı? Giriş yapın</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@await Component.InvokeAsync("Notyf")
